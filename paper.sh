@@ -3,6 +3,7 @@
 PAPER_BUILD=latest
 MC_VERSION=1.16.1
 
+echo "Ensuring PaperMC installation is V$MC_VERSION #$PAPER_BUILD"
 if [[ ! -f version_history.json || ! -f paper ]]; then
     echo "Missing files detected, downloading latest Paper build for Minecraft $MC_VERSION."
     wget https://papermc.io/api/v1/paper/$MC_VERSION/latest/download -O paper-$MC_VERSION.jar
