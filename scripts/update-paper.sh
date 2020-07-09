@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PAPER_BUILD=latest
+PAPER_BUILD=$1
 MC_VERSION=1.16.1
 
 echo "Ensuring PaperMC installation is V$MC_VERSION #$PAPER_BUILD"

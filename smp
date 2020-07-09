@@ -1,0 +1,19 @@
+#!/bin/bash
+set -x
+
+if [[ $1 == "start" ]]; then
+  shift
+  sh ./scripts/start.sh $@
+elif [[ $1 == "backup" ]]; then
+  shift
+  sh ./scripts/backup.sh $@
+elif [[ $1 == "stop" ]]; then
+  shift
+  sh ./scripts/stop.sh $@
+elif [[ $1 == "update-paper" ]]; then
+  shift
+  sh ./scripts/update-paper.sh $@
+elif [[ $1 == "update-server" ]]; then
+  shift
+  sh ./scripts/update-server.sh $@
+fi
