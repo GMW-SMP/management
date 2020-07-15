@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PAPER_BUILD = $(yq r ../config.yaml paper-build)
-MC_VERSION = $(yq r ../config.yaml mc-version)
+PAPER_BUILD="$(yq r config.yaml paper-build)"
+MC_VERSION="$(yq r config.yaml mc-version)"
 
 echo "Ensuring PaperMC installation is V$MC_VERSION #$PAPER_BUILD"
 if [[ ! -f version_history.json || ! -f paper ]]; then
