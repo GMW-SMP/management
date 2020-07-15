@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PAPER_BUILD=$1
-MC_VERSION=1.16.1
+PAPER_BUILD = $(yq r ../config.yaml paper-build)
+MC_VERSION = $(yq r ../config.yaml mc-version)
 
 echo "Ensuring PaperMC installation is V$MC_VERSION #$PAPER_BUILD"
 if [[ ! -f version_history.json || ! -f paper ]]; then
@@ -14,13 +14,13 @@ if [[ ! -f version_history.json || ! -f paper ]]; then
     if [[ $PAPER_BUILD == "latest" ]]; then
       echo "Current Paper $MC_VERSION build is #$CURRENT_BUILD. Latest build is #$LATEST_BUILD."
       if [[ $CURRENT_BUILD != $LATEST_BUILD]]; then
-        echo "Current build out of date, downloading latest Paper build for Minecraft $MC_VERSION."
+        echo "Updating Paper to build #$LATEST_BUILD."
         wget https://papermc.io/api/v1/paper/$MC_VERSION/latest/download -O paper-$MC_VERSION.jar
       fi
     else
-      echo "Current Paper $MC_VERSION build is #$CURRENT_BUILD. Server build set to #$PAPER_BUILD."
+      echo "Current Paper $MC_VERSION build is set to #$CURRENT_BUILD. Server build set to #$PAPER_BUILD."
       if [[ $CURRENT_BUILD != $PAPER_BUILD]]; then
-        echo "Current build is out of date, downloading build #$PAPER_BUILD for Minecraft $MC_VERSION."
+        echo "Updating Paper to build #$PAPER_BUILD."
         wget https://papermc.io/api/v1/paper/$MC_VERSION/$PAPER_BUILD/download -O paper-$MC_VERSION.jar
       fi
     fi
