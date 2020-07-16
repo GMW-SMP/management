@@ -9,22 +9,22 @@ cd $BASE_DIR
 
 if [[ $1 == "start" ]]; then
   shift
-  bash ./scripts/start.sh $@
+  bash ./start.sh $@
 elif [[ $1 == "backup" ]]; then
   shift
-  bash ./scripts/backup.sh $@
+  bash ./backup.sh $@
 elif [[ $1 == "stop" ]]; then
   shift
-  bash ./scripts/stop.sh $@
+  bash ./stop.sh $@
 elif [[ $1 == "update-paper" ]]; then
   shift
-  bash ./scripts/update-paper.sh $@
+  bash ./update-paper.sh $@
 elif [[ $1 == "update-server" ]]; then
   shift
-  bash ./scripts/update-server.sh $@
+  bash ./update-server.sh $@
 elif [[ $1 == "update-management" ]]; then
   shift
-  bash ./scripts/update-management.sh $@
+  bash ./update-management.sh $@
 fi
 
 cd $OLD_DIR

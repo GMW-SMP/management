@@ -5,7 +5,7 @@
 # will probably make bad things happen.
 
 mkdir ./tmp
-cp -r ./scripts ./tmp
+cp -r ./scripts/ ./tmp
 
 bash ./tmp/manage.sh $@
 
