@@ -16,10 +16,10 @@ git clone $(yq r config.yaml packages-repo) $STAGING_DIR/packages/
 
 # Git reset and server update.
 if [[ -d "$MC_DIR" ]]; then
-  rm -r $MC_DIR/plugins
+  rm $MC_DIR/plugins/*.jar
   git -C $MC_DIR fetch --all
   git -C $MC_DIR reset --hard origin/master
-  mv $STAGING_DIR/packages/* $MC_DIR/plugins
+  mv $STAGING_DIR/packages/*.jar $MC_DIR/plugins
 else
   git clone $(yq r config.yaml server-repo) $MC_DIR
   mv $STAGING_DIR/packages/* $MC_DIR/plugins
