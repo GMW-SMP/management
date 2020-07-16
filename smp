@@ -3,6 +3,7 @@
 # Debugging
 # set -x
 
+OLD_DIR=$(pwd)
 BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $BASE_DIR
 
@@ -21,4 +22,9 @@ elif [[ $1 == "update-paper" ]]; then
 elif [[ $1 == "update-server" ]]; then
   shift
   sh ./scripts/update-server.sh $@
+elif [[ $1 == "update-management" ]]; then
+  shift
+  sh ./scripts/update-management.sh $@
 fi
+
+cd $OLD_DIR

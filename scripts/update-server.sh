@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MC_DIR=$(yq r config.yaml server-directory)
+MC_DIR="$(yq r config.yaml server-directory)"
 STAGING_DIR=$MC_DIR/../staging/
 
 # Close server if running.
