@@ -14,13 +14,13 @@ if [[ ! -f version_history.json || ! -f paper.jar ]]; then
 
     if [[ $PAPER_BUILD == "latest" ]]; then
       echo "Current Paper $MC_VERSION build is #$CURRENT_BUILD. Latest build is #$LATEST_BUILD."
-      if [[ $CURRENT_BUILD != $LATEST_BUILD]]; then
+      if [[ $CURRENT_BUILD != $LATEST_BUILD ]]; then
         echo "Updating Paper to build #$LATEST_BUILD."
         wget https://papermc.io/api/v1/paper/$MC_VERSION/latest/download -O $SERVER_DIR/paper.jar
       fi
     else
       echo "Current Paper $MC_VERSION build is set to #$CURRENT_BUILD. Server build set to #$PAPER_BUILD."
-      if [[ $CURRENT_BUILD != $PAPER_BUILD]]; then
+      if [[ $CURRENT_BUILD != $PAPER_BUILD ]]; then
         echo "Updating Paper to build #$PAPER_BUILD."
         wget https://papermc.io/api/v1/paper/$MC_VERSION/$PAPER_BUILD/download -O $SERVER_DIR/paper.jar
       fi
