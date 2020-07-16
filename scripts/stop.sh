@@ -11,6 +11,13 @@ DEBUG=false
 # TMUX SESSION NAME
 SESSION_NAME=$(yq r config.yaml tmux-session-name)
 
+TMUX_SESSION=$(yq r config.yaml tmux-session-name)
+tmux has-session -t $TMUX_SESSION 2>/dev/null
+if [[ $? != 0 ]]; then
+  echo "No running server detected."
+  exit 1
+fi
+
 # Use custom duration if provided.
 if ! [ -z "$1" ]; then
   DURATION=$1
