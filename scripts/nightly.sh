@@ -1,11 +1,11 @@
 #!/bin/bash
 
-bash ../smp update-management
+bash manage.sh update-management
 
-bash ../smp stop
+bash manage.sh stop
 sleep 10
 # Daily backup, 3 day retention.
-bash ../smp backup daily 3
-bash ../smp update-server
-bash ../smp update-paper
-bash ../smp start
+bash manage.sh backup daily 3
+bash manage.sh update-server
+bash manage.sh update-paper
+bash manage.sh start

@@ -8,8 +8,11 @@ OLD_DIR=$(pwd)
 BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $BASE_DIR
 
-mkdir ./tmp
-cp -a ./scripts/. ./tmp
+if [[ ! -d "./tmp" ]]; then
+  mkdir ./tmp
+  cp -a ./scripts/. ./tmp
+  cp config.yaml ./tmp/config.yaml
+fi
 
 bash ./tmp/manage.sh $@
 
