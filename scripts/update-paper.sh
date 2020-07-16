@@ -5,7 +5,7 @@ MC_VERSION="$(yq r config.yaml mc-version)"
 SERVER_DIR="$(yq r config.yaml server-directory)"
 
 echo "Ensuring PaperMC installation is V$MC_VERSION #$PAPER_BUILD"
-if [[ ! -f version_history.json || ! -f paper ]]; then
+if [[ ! -f version_history.json || ! -f paper.jar ]]; then
     echo "Missing files detected, downloading latest Paper build for Minecraft $MC_VERSION."
     wget https://papermc.io/api/v1/paper/$MC_VERSION/$PAPER_BUILD/download -O $SERVER_DIR/paper.jar
   else
