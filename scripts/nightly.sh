@@ -1,8 +1,10 @@
 #!/bin/bash
 
-./smp stop
-# Daily backup, 2 day retention.
-./smp backup daily 2
-./smp update-server
-./smp update-paper
-./smp start
+bash ../smp update-management
+
+bash ../smp stop
+# Daily backup, 3 day retention.
+bash ../smp backup daily 3
+bash ../smp update-server
+bash ../smp update-paper
+bash ../smp start
