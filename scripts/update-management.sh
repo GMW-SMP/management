@@ -1,4 +1,4 @@
 #!/bin/bash
 
-git fetch --all
-git reset --hard origin/master
+git -C ../ fetch --all
+git -C ../ reset --hard origin/master
