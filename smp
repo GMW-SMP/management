@@ -4,9 +4,15 @@
 # if it must be changed then updating through the update-manage.sh file
 # will probably make bad things happen.
 
+OLD_DIR=$(pwd)
+BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+cd $BASE_DIR
+
 mkdir ./tmp
 cp -a ./scripts/. ./tmp
 
 bash ./tmp/manage.sh $@
 
 rm -rf ./tmp
+
+cd $OLD_DIR
