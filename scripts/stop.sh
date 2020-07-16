@@ -9,7 +9,7 @@ STAY_DURATION=60
 # DEBUGGING
 DEBUG=false
 # TMUX SESSION NAME
-SESSION_NAME="smp-server"
+SESSION_NAME=$(yq r config.yaml tmux-session-name)
 
 # Use custom duration if provided.
 if ! [ -z "$1" ]; then
