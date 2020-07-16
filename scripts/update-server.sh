@@ -8,7 +8,8 @@ TMUX_SESSION=$(yq r config.yaml tmux-session-name)
 tmux has-session -t $TMUX_SESSION 2>/dev/null
 if [[ $? == 0 ]]; then
   echo "Running server detected, shutting down before proceeding..."
-  source scripts/shutdown.sh
+  source ../smp stop
+  sleep 10
 fi
 
 mkdir -p $STAGING_DIR
