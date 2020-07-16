@@ -22,6 +22,12 @@ elif [[ $1 == "update-server" ]]; then
 elif [[ $1 == "update-management" ]]; then
   shift
   bash ./update-management.sh $@
+elif [[ $1 == "nightly" ]]; then
+  shift
+  bash ./nightly.sh $@
+elif [[ $1 == "weekly" ]]; then
+  shift
+  bash ./weekly.sh $@
 fi
 
 cd $OLD_DIR
