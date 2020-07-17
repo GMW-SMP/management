@@ -46,6 +46,8 @@ for i in `seq $DURATION -1 0`; do
       runcommand "tbc ${TITLE/seconds/second} fadein:0 stay:$STAY_DURATION"
     elif [ $i = 0 ]; then
       runcommand "stop"
+      echo "Waiting 5 seconds for the server to stop..."
+      sleep 5
     else
       runcommand "tbc $TITLE fadein:0 stay:$STAY_DURATION"
     fi
