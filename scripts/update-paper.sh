@@ -19,7 +19,7 @@ if [[ ! -f $SERVER_DIR/version_history.json || ! -f $SERVER_DIR/paper.jar ]]; th
         wget https://papermc.io/api/v1/paper/$MC_VERSION/latest/download -O $SERVER_DIR/paper.jar
       fi
     else
-      echo "Current Paper $MC_VERSION installed build is #$CURRENT_BUILD. Server is configured to use build $PAPER_BUILD"
+      echo "Current Paper $MC_VERSION installed build is #$CURRENT_BUILD. Server is configured to use build #$PAPER_BUILD"
       if [[ $CURRENT_BUILD != $PAPER_BUILD ]]; then
         echo "Updating Paper to build #$PAPER_BUILD."
         wget https://papermc.io/api/v1/paper/$MC_VERSION/$PAPER_BUILD/download -O $SERVER_DIR/paper.jar
