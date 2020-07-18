@@ -12,10 +12,12 @@ if [[ ! -d "./tmp" ]]; then
   mkdir ./tmp
   cp -a ./scripts/. ./tmp
   cp config.yaml ./tmp/config.yaml
+  cd ./tmp
 fi
 
-bash ./tmp/manage.sh $@
+bash ./manage.sh $@
 
+cd $BASE_DIR
 rm -rf ./tmp
 
 cd $OLD_DIR

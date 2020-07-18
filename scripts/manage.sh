@@ -2,7 +2,6 @@
 
 OLD_DIR=$(pwd)
 BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-cd $BASE_DIR
 
 if [[ $1 == "start" ]]; then
   shift
@@ -29,5 +28,3 @@ elif [[ $1 == "weekly" ]]; then
   shift
   bash ./weekly.sh $@
 fi
-
-cd $OLD_DIR

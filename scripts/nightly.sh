@@ -1,10 +1,10 @@
 #!/bin/bash
 
-bash manage.sh update-management
+bash update-management.sh
 
-bash manage.sh stop
+bash stop.sh
 # Daily backup, 3 day retention.
-bash manage.sh backup daily 3
-bash manage.sh update-server
-bash manage.sh update-paper
-bash manage.sh start
+bash backup.sh daily 3
+bash update-server.sh
+bash update-paper.sh
+bash start.sh
