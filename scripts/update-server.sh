@@ -7,9 +7,9 @@ STAGING_DIR=$MC_DIR/../staging/
 TMUX_SESSION=$(yq r config.yaml tmux-session-name)
 tmux has-session -t $TMUX_SESSION 2>/dev/null
 if [[ $? == 0 ]]; then
+  RESTART_SERVER=1
   echo "Running server detected, shutting down before proceeding..."
-  source ../smp stop
-  sleep 10
+  bash stop.sh
 fi
 
 mkdir -p $STAGING_DIR
@@ -29,4 +29,7 @@ fi
 # Cleanup
 rm -rf $STAGING_DIR
 
-# TODO implement automatic server start when flag is given.
+if [[ $RESTART_SERVER == 1 ]]; then
+  echo "Server was previously running, starting it again now."
+  bash start.sh
+fi
