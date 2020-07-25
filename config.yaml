@@ -1,6 +1,6 @@
 tmux-session-name: gmw-smp
 server-directory: /home/mc/server
 mc-version: 1.16.1
-paper-build: 108
+paper-build: 114
 server-repo: git@github.com:GMW-SMP/server.git
 packages-repo: git@github.com:GMW-SMP/packages.git
