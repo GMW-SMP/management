@@ -15,6 +15,6 @@ tar -czvf $MC_DIR/../backups/$BACKUP_TYPE/$FILENAME logs worlds whitelist.json b
 
 # TODO add logging support back
 echo "Purging backups over $RETENTION_DAYS days old."
-find $MC_DIR/../backups/ -type f -name 'gmw-backup-*.tar.gz' -mtime +$RETENTION_DAYS -print -exec rm -f {} \; #>> $LOG_FILE
+find $MC_DIR/../backups/BACKUP_TYPE -type f -name 'gmw-backup-*.tar.gz' -mtime +$RETENTION_DAYS -print -exec rm -f {} \; #>> $LOG_FILE
 echo "Purging server logs since they are stored in the current backup."
 find $MC_DIR/logs -type f -name '*.log.gz' -print -exec rm -f {} \; #>> $LOG_FILE
