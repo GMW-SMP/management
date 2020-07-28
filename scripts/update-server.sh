@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MC_DIR="$(yq r config.yaml server-directory)"
-STAGING_DIR=$MC_DIR/../staging/
+STAGING_DIR=$MC_DIR/../staging
 
 # Close server if running.
 TMUX_SESSION=$(yq r config.yaml tmux-session-name)
@@ -23,7 +23,7 @@ if [[ -d "$MC_DIR" ]]; then
   mv $STAGING_DIR/packages/*.jar $MC_DIR/plugins
 else
   git clone $(yq r config.yaml server-repo) $MC_DIR
-  mv $STAGING_DIR/packages/* $MC_DIR/plugins
+  mv $STAGING_DIR/packages/*.jar $MC_DIR/plugins
 fi
 
 # Cleanup
