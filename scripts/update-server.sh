@@ -13,14 +13,18 @@ if [[ $? == 0 ]]; then
 fi
 
 mkdir -p $STAGING_DIR
+mkdir -p $MC_DIR/plugins
+mkdir -p $MC_DIR/worlds/world/datapacks
 git clone $(yq r config.yaml packages-repo) $STAGING_DIR/packages/
 
 # Git reset and server update.
 if [[ -d "$MC_DIR" ]]; then
   rm $MC_DIR/plugins/*.jar
+  rm $MC_DIR/worlds/world/datapacks/*.zip
   git -C $MC_DIR fetch --all
   git -C $MC_DIR reset --hard origin/master
-  mv $STAGING_DIR/packages/*.jar $MC_DIR/plugins
+  mv $STAGING_DIR/packages/plugins/*.jar $MC_DIR/plugins
+  mv $STAGING_DIR/packages/datapacks/*.zip $MC_DIR/worlds/world/datapacks
 else
   git clone $(yq r config.yaml server-repo) $MC_DIR
   mv $STAGING_DIR/packages/*.jar $MC_DIR/plugins
